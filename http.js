@@ -4,7 +4,7 @@ let http = require('http');
 http
     .createServer()
     .on('request', (req, res) => {
-        console.log("rasmi");
+        res.writeHead(200, "Congrats man")
         res.end("rasmi");
     })
     .listen(80);

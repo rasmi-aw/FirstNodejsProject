@@ -1,5 +1,8 @@
 module.exports = {
+    log: function (message) {
+        console.log(message)
+    },
     hello: function () {
-        console.log("hello")
+        this.log("hello")
     }
 }

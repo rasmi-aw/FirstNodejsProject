@@ -1,4 +1,4 @@
-const EventEmitter = require("events")
+const EventEmitter = require("modules/events")
 
 let run = new EventEmitter()
 run.on("run", function () {

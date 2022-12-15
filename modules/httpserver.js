@@ -12,15 +12,14 @@ module.exports = {
                     "Content-type": "text/html; charset= UTF-8"
                 })
                 let data = "Nada"
-                if (req.url === "/")
-                    fs.readFile("index.html", (err, data) => {
-                        if (!err) {
-                            console.log("Yes")
-                            data = data.toString().replace("name", query.name).replace(ppp, "root")
-                            resp.end(data)
-                        } else resp.end()
-                    })
-
+                let stream = fs.createReadStream('./modules/index.html')
+                stream.on('data', function (chunk) {
+                    resp.write(chunk)
+                })
+                stream.on('end', function () {
+                    resp.end()
+                })
+                stream.read()
             })
             server.listen(port)
         }
